@@ -48,7 +48,12 @@ module.exports = {
     'import/no-extraneous-dependencies': [
       'error',
       {
-        devDependencies: ['tests/**/*.js', '.webpack/**/*.js'],
+        devDependencies: [
+          'tests/**/*.js',
+          '.webpack/**/*.js',
+          'js/__tests__/**/*.js',
+          'js/__mocks__/**/*.js',
+        ],
       },
     ],
     'max-len': ['error', {code: 120}],
@@ -69,4 +74,19 @@ module.exports = {
   settings: {
     'import/resolver': 'webpack',
   },
+  overrides: [
+    {
+      files: ['js/__tests__/**/*.js', 'js/__mocks__/**/*.js'],
+      env: {
+        jest: true,
+        node: true,
+      },
+      rules: {
+        'global-require': 'off',
+        'no-multi-assign': 'off',
+        'no-restricted-globals': 'off',
+        'import/extensions': 'off',
+      },
+    },
+  ],
 };

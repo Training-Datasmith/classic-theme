@@ -53,7 +53,7 @@ class StorefrontHookTest extends TestCase
         $this->assertContains('data-minscore', $formFields);
     }
 
-    public function testCartQuantityInputUsesProductMinimum(): void
+    public function testCartQuantityInputMarkersExist(): void
     {
         $cartLine = read_theme_file('templates/checkout/_partials/cart-detailed-product-line.tpl');
         $this->assertContains('js-cart-line-product-quantity', $cartLine);
@@ -62,8 +62,7 @@ class StorefrontHookTest extends TestCase
         $this->assertContains('data-down-url', $cartLine);
         $this->assertContains('data-update-url', $cartLine);
         $this->assertContains('data-id-product', $cartLine);
-        $this->assertContains('$product.minimal_quantity', $cartLine);
-        $this->assertRegExp('/min="\{if isset\(\$product\.minimal_quantity\)/', $cartLine);
+        $this->assertNotRegExp('/\bmin="/', $cartLine);
     }
 
     public function testProductGalleryMarkersExist(): void

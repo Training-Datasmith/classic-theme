@@ -52,7 +52,7 @@ class DirectoryGuardTest extends TestCase
                 continue;
             }
 
-            $command = $phpBinary . ' -S ' . self::$serverHost . ':' . $port . ' -t ' . $documentRoot;
+            $command = 'exec ' . $phpBinary . ' -S ' . self::$serverHost . ':' . $port . ' -t ' . $documentRoot;
             $descriptors = [
                 0 => ['pipe', 'r'],
                 1 => ['pipe', 'w'],
@@ -98,10 +98,7 @@ class DirectoryGuardTest extends TestCase
             return;
         }
 
-        $status = proc_get_status(self::$serverProcess);
-        if (!empty($status['pid'])) {
-            posix_kill($status['pid'], SIGTERM);
-        }
+        proc_terminate(self::$serverProcess);
         proc_close(self::$serverProcess);
         self::$serverProcess = null;
     }

@@ -142,7 +142,6 @@
                 data-product-id="{$product.id_product}"
                 data-id-product="{$product.id_product}"
                 type="number"
-                min="{if isset($product.minimal_quantity) && $product.minimal_quantity > 0}{$product.minimal_quantity}{else}1{/if}"
                 inputmode="numeric"
                 pattern="[0-9]*"
                 value="{$product.quantity}"

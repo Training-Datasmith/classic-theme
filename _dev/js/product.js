@@ -26,7 +26,7 @@ import $ from 'jquery';
 import prestashop from 'prestashop';
 import ProductSelect from './components/product-select';
 import updateSources from './components/update-sources';
-import {resolveThumbParentOnSwipe} from './components/product-cover-navigation';
+import resolveThumbParentOnSwipe from './components/product-cover-navigation';
 
 $(document).ready(() => {
   function coverImage() {

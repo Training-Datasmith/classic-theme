@@ -28,7 +28,7 @@
  * @param {JQuery} parentThumb
  * @returns {JQuery|null}
  */
-export function resolveThumbParentOnSwipe(direction, parentThumb) {
+export default function resolveThumbParentOnSwipe(direction, parentThumb) {
   if (direction === 'right') {
     if (parentThumb.prev().length > 0) {
       return parentThumb.prev();

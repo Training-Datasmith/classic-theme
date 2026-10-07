@@ -45,7 +45,6 @@ describe('cart.js integration', () => {
           name="product-quantity-spin"
           class="js-cart-line-product-quantity"
           value="2"
-          min="1"
           data-update-url="/cart-update"
           data-id-product="42"
           data-product-id="42"
@@ -60,7 +59,7 @@ describe('cart.js integration', () => {
     $ = require('jquery').default || require('jquery');
     jqueryMocks = require('jquery').jqueryPluginMockState;
     prestashop = require('prestashop').default || require('prestashop');
-    require('../cart.js');
+    require('../cart');
     await waitForDocumentReady($);
     prestashop.emit('updatedCart');
     await flushPromises();
@@ -74,6 +73,13 @@ describe('cart.js integration', () => {
 
   afterEach(() => {
     jest.restoreAllMocks();
+  });
+
+  test('cart quantity input has no min attribute so zero can remove the line', async () => {
+    await flushPromises();
+
+    const input = document.querySelector('input[name="product-quantity-spin"]');
+    expect(input.hasAttribute('min')).toBe(false);
   });
 
   test('createSpin configures decrease and increase touchspin button classes', async () => {

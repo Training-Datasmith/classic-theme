@@ -22,7 +22,7 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  */
-import {resolveThumbParentOnSwipe} from '../components/product-cover-navigation';
+import resolveThumbParentOnSwipe from '../components/product-cover-navigation';
 
 describe('resolveThumbParentOnSwipe', () => {
   test('moves to the previous thumb on right swipe when one exists', () => {

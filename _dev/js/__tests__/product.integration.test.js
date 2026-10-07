@@ -80,7 +80,7 @@ describe('product.js integration', () => {
     renderGallery(selectedIndex);
     $ = require('jquery').default || require('jquery');
     jqueryMocks = require('jquery').jqueryPluginMockState;
-    require('../product.js');
+    require('../product');
     await waitForDocumentReady($);
     await flushPromises();
   }

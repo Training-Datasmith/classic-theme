@@ -34,7 +34,7 @@ describe('cart quantity helpers', () => {
     expect(options.min).toBe(3);
   });
 
-  test('uses the product minimum greater than one for touchspin', () => {
+  test('reads min from the input attribute when present', () => {
     document.body.innerHTML = '<input name="product-quantity-spin" min="5" value="5">';
     const options = getCartTouchSpinOptions(document.querySelector('input'));
 
