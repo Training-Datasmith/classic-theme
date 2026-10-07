@@ -22,7 +22,6 @@
     "bootstrap-touchspin": "^3.1.1",
     "bourbon": "^7.3.0",
     "css-loader": "^7.1.2",
-    "@babel/preset-env": "^7.15.0",
     "esbuild-jest": "^0.5.0",
     "esbuild-loader": "^4.2.2",
     "eslint": "^8.18.0",
@@ -73,7 +72,6 @@
     "@jridgewell/trace-mapping": "0.3.25",
     "browserslist": "4.23.3",
     "caniuse-lite": "1.0.30001663",
-    "chalk": "2.4.2",
     "convert-source-map": "1.7.0",
     "electron-to-chromium": "1.5.27",
     "es-define-property": "1.0.0",
@@ -82,7 +80,6 @@
     "escape-string-regexp": "1.0.5",
     "get-intrinsic": "1.2.4",
     "gopd": "1.0.1",
-    "has-flag": "3.0.0",
     "has-symbols": "1.0.3",
     "hasown": "2.0.2",
     "is-core-module": "2.15.1",
@@ -91,9 +88,10 @@
     "node-releases": "2.0.18",
     "picocolors": "1.1.0",
     "resolve": "1.22.8",
-    "source-map": "0.5.6",
-    "supports-color": "5.5.0",
-    "update-browserslist-db": "1.1.0"
+    "update-browserslist-db": "1.1.0",
+    "uri-js": {
+      "punycode": "2.1.1"
+    }
   },
   "dependencies": {
     "webpack": "^5.94.0",
