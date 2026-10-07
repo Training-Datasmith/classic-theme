@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bd9c470d3d968c38197332c222225245",
+    "content-hash": "9450c62bdfa2a10f36e5febd6c0eddc0",
     "packages": [],
     "packages-dev": [
         {
@@ -2078,7 +2078,7 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "4.4.x-dev",
+            "version": "v4.4.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
@@ -2129,7 +2129,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/4.4"
+                "source": "https://github.com/symfony/yaml/tree/v4.4.45"
             },
             "funding": [
                 {
@@ -2247,13 +2247,13 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {},
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": {},
-    "platform-dev": {},
+    "platform": [],
+    "platform-dev": [],
     "platform-overrides": {
         "php": "7.1.3"
     },
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.2.0"
 }
