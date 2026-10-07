@@ -26,6 +26,7 @@ import $ from 'jquery';
 import prestashop from 'prestashop';
 import ProductSelect from './components/product-select';
 import updateSources from './components/update-sources';
+import {resolveThumbParentOnSwipe} from './components/product-cover-navigation';
 
 $(document).ready(() => {
   function coverImage() {
@@ -65,18 +66,10 @@ $(document).ready(() => {
         thumbSelected = $(prestashop.themeSelectors.product.selected);
         const parentThumb = thumbSelected.closest(prestashop.themeSelectors.product.thumbContainer);
 
-        if (direction === 'right') {
-          if (parentThumb.prev().length > 0) {
-            swipe(thumbSelected, parentThumb.prev());
-          } else if (parentThumb.next().length > 0) {
-            swipe(thumbSelected, parentThumb.next());
-          }
-        } else if (direction === 'left') {
-          if (parentThumb.next().length > 0) {
-            swipe(thumbSelected, parentThumb.next());
-          } else if (parentThumb.prev().length > 0) {
-            swipe(thumbSelected, parentThumb.prev());
-          }
+        const nextParent = resolveThumbParentOnSwipe(direction, parentThumb);
+
+        if (nextParent) {
+          swipe(thumbSelected, nextParent);
         }
       },
       allowPageScroll: 'vertical',

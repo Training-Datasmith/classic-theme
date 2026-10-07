@@ -9,12 +9,19 @@
     "scss-lint": "stylelint \"**/*.scss\" --formatter verbose",
     "scss-fix": "stylelint \"**/*.scss\" --fix",
     "lint": "eslint -c .eslintrc.js --ext .js,.vue ./js",
-    "lint-fix": "eslint -c .eslintrc.js --ext .js,.vue ./js --fix"
+    "lint-fix": "eslint -c .eslintrc.js --ext .js,.vue ./js --fix",
+    "test": "jest --runInBand",
+    "test:unit": "jest --runInBand"
   },
   "author": "PrestaShop",
   "license": "AFL-3.0",
   "devDependencies": {
+    "@babel/core": "^7.25.2",
     "@babel/eslint-parser": "^7.25.1",
+    "@babel/preset-env": "^7.25.4",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "autoprefixer": "^10.4.20",
     "bootstrap": "4.0.0-alpha.5",
     "bootstrap-touchspin": "^3.1.1",

@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import prestashop from 'prestashop';
 import debounce from './components/debounce';
+import {getCartTouchSpinOptions, getUpdateCartReasonFromTarget} from './components/cart-quantity';
 
 prestashop.cart = prestashop.cart || {};
 
@@ -70,15 +71,7 @@ const CheckUpdateQuantityOperations = {
  */
 function createSpin() {
   $.each($(spinnerSelector), (index, spinner) => {
-    $(spinner).TouchSpin({
-      verticalbuttons: true,
-      verticalupclass: 'material-icons touchspin-up',
-      verticaldownclass: 'material-icons touchspin-down',
-      buttondown_class: 'btn btn-touchspin js-touchspin js-increase-product-quantity',
-      buttonup_class: 'btn btn-touchspin js-touchspin js-decrease-product-quantity',
-      min: parseInt($(spinner).attr('min'), 10),
-      max: 1000000,
-    });
+    $(spinner).TouchSpin(getCartTouchSpinOptions(spinner));
   });
 
   $(prestashop.themeSelectors.touchspin).off('touchstart.touchspin');
@@ -265,7 +258,7 @@ $(document).ready(() => {
         CheckUpdateQuantityOperations.checkUpdateOperation(resp);
 
         $target.val(resp.quantity);
-        const dataset = ($target && $target.dataset) ? $target.dataset : resp;
+        const dataset = getUpdateCartReasonFromTarget($target, resp);
 
         // Refresh cart preview
         prestashop.emit('updateCart', {
