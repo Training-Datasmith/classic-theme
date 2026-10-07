@@ -24,10 +24,16 @@
  */
 module.exports = {
   testEnvironment: 'jsdom',
+  transform: {
+    '^.+\\.js$': 'esbuild-jest',
+  },
   roots: ['<rootDir>/js'],
   testMatch: ['**/__tests__/**/*.test.js'],
   moduleNameMapper: {
+    '^jquery$': '<rootDir>/js/__mocks__/jquery.js',
     '^prestashop$': '<rootDir>/js/__mocks__/prestashop.js',
+    '^velocity-animate$': '<rootDir>/js/__mocks__/velocity-animate.js',
+    '^update-sources$': '<rootDir>/js/components/update-sources.js',
   },
   setupFilesAfterEnv: ['<rootDir>/js/__tests__/setup.js'],
 };
